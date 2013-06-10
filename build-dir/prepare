@@ -12,15 +12,20 @@ apt-get install -y mercurial
 apt-get install -y ruby1.9.1-dev
 
 # Common database clients/libs
-apt-get install -y postgresql
-apt-get install -y postgresql-server-dev-9.1
-apt-get install -y sqlite3
-apt-get install -y libsqlite-dev
 apt-get install -y mysql-client
 
 # Other common libraries
 apt-get install -y libssl0.9.8
 apt-get install -y nodejs
+apt-get install -y wget git-core libfontconfig1-dev
+
+cd /usr/local/share && wget https://phantomjs.googlecode.com/files/phantomjs-1.9.0-linux-x86_64.tar.bz2
+ln -s /usr/local/share/phantomjs-1.9.0-linux-x8664/bin/phantomjs /usr/local/share/phantomjs; ln -s /usr/local/share/phantomjs-1.9.0-linux-x8664/bin/phantomjs /usr/local/bin/phantomjs; ln -s /usr/local/share/phantomjs-1.9.0-linux-x86_64/bin/phantomjs /usr/bin/phantomjs
+
+git clone git://github.com/n1k0/casperjs.git
+cd casperjs
+git checkout tags/1.0.2
+ln -sf `pwd`/bin/casperjs /usr/local/bin/casperjs
 
 # Buildpack dependencies:
 
